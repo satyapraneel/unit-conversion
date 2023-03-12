@@ -16,10 +16,10 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest]
-        php: [8.0.27]
+        operating-system: [ubuntu-latest]
+        php-versions: [8.0]
         dependency-version: [prefer-lowest, prefer-stable]
-    name: P${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
+    name: P${{ matrix.php-versions }} - ${{ matrix.dependency-version }} - ${{ matrix.operating-system }}
 
     steps:
       - name: Checkout code
@@ -29,12 +29,12 @@ jobs:
         uses: action/checkout@v1
         with:
           path: ~/.composer/cache/files
-          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php-versions }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: ${{ matrix.php-versions }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
           coverage: none
 
