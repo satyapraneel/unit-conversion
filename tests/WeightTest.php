@@ -7,7 +7,6 @@ use UnitConversion\Weight;
 
 class WeightTest extends TestCase
 {
-
     /**
      * @test
      */
@@ -17,5 +16,4 @@ class WeightTest extends TestCase
 
         $this->assertEquals(220.4623, $lbs);
     }
-
 }
