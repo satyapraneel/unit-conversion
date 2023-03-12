@@ -1,7 +1,6 @@
 <?php
 
 namespace UnitConversion;
-use Exception;
 
 class Weight
 {
