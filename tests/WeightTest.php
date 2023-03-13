@@ -16,4 +16,14 @@ class WeightTest extends TestCase
 
         $this->assertEquals(220.4623, $lbs);
     }
+
+    /**
+     * @test
+     */
+    public function testConvertKGToStones()
+    {
+        $toStones = Weight::fromKilogram(100)->toStones();
+
+        $this->assertEquals(15.747, $toStones);
+    }
 }
